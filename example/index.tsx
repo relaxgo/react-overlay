@@ -1,14 +1,17 @@
-import 'react-app-polyfill/ie11';
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { Thing } from '../.';
+import { createRoot } from 'react-dom/client';
+import { OverlayProvider, ModalOverlay } from 'react-overlay';
+import 'react-overlay/dist/react-overlay.css';
 
-const App = () => {
-  return (
-    <div>
-      <Thing />
-    </div>
-  );
-};
+import Content from './Content';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const container = document.getElementById('root');
+const root = createRoot(container!);
+root.render(
+  <div>
+    <OverlayProvider>
+      <Content />
+      <ModalOverlay />
+    </OverlayProvider>
+  </div>
+);
