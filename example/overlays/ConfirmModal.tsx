@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useModalOverlay, ModalProps } from 'react-overlay';
+import { useModalOverlay, ModalProps } from '@react-overlay/overlays';
 
 interface ConfirmModalProps extends ModalProps {
   description?: string;

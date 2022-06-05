@@ -14,7 +14,7 @@
   "alias": {
     "react": "../node_modules/react",
     "react-dom": "../node_modules/react-dom",
-    "react-overlay": "..",
+    "@react-overlay/overlays": "../dist",
     "scheduler/tracing": "../node_modules/scheduler/tracing-profiling"
   },
   "devDependencies": {
