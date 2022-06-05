@@ -1,11 +1,10 @@
 {
   "version": "0.1.0",
   "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "index.js",
+  "typings": "index.d.ts",
   "files": [
-    "dist",
-    "src"
+    "style.css"
   ],
   "engines": {
     "node": ">=10"
@@ -32,9 +31,9 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "react-overlay",
+  "name": "@react-overlay/overlays",
   "author": "Jiajun Zhang",
-  "module": "dist/react-overlay.esm.js",
+  "module": "react-overlay.esm.js",
   "size-limit": [
     {
       "path": "dist/react-overlay.cjs.production.min.js",
@@ -56,6 +55,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-copy": "^3.4.0",
     "size-limit": "^7.0.8",
     "tsdx": "^0.14.1",
     "tslib": "^2.4.0",

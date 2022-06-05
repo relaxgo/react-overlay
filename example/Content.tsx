@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { useModalOverlay } from 'react-overlay';
+import { useModalOverlay } from '@react-overlay/overlays';
 
 import InfoModal from './overlays/InfoModal';
 

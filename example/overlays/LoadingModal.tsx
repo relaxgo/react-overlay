@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ModalProps } from 'react-overlay';
+import { ModalProps } from '@react-overlay/overlays';
 
 interface LoadingModalProps extends ModalProps {
   message?: string;
