@@ -30,7 +30,7 @@ root.render(
 );
 ```
 
-Then it's easy to show your modal or other components by a hook. the modal will be mounted on the root.
+Then it's easy to open your modal or other components by a hook. the modal will be mounted on the root.
 ```tsx
 import { useModalOverlay } from '@react-overlay/overlays';
 import InfoModal from './overlays/InfoModal';
@@ -38,15 +38,15 @@ import InfoModal from './overlays/InfoModal';
 export default function Content() {
   const modalOverlay = useModalOverlay();
 
-  const handleShowModal = () => {
+  const handleOpenModal = () => {
     const modal = <InfoModal />;
-    modalOverlay.show(modal);
+    modalOverlay.open(modal);
   };
 
   return (
     <div>
       <h1 className="title">test</h1>
-      <button onClick={handleShowModal}>open a modal </button>
+      <button onClick={handleOpenModal}>open a modal </button>
       <style jsx>{`
         .title {
           margin: 10px;

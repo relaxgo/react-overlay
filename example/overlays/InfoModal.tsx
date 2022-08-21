@@ -13,21 +13,21 @@ export default function InfoModal({ closeModal, num }: InfoModalProps) {
 
   const handleConfirm = () => {
     const modal = <LoadingModal message="loading" />;
-    const closeLoading = modalOverlay.show(modal, { closable: false });
+    const closeLoading = modalOverlay.open(modal, { closable: false });
     setTimeout(() => {
       closeLoading();
       closeModal?.();
     }, num);
   };
 
-  const handleShowConfirm = () => {
+  const handleOpenConfirm = () => {
     const modal = (
       <ConfirmModal
         onConfirm={handleConfirm}
         description={`The load will take ${num}ms.`}
       />
     );
-    modalOverlay.show(modal);
+    modalOverlay.open(modal);
   };
 
   return (
@@ -38,7 +38,7 @@ export default function InfoModal({ closeModal, num }: InfoModalProps) {
         modal
       </p>
       <button onClick={closeModal}>cancel</button>
-      <button onClick={handleShowConfirm}>confirm</button>
+      <button onClick={handleOpenConfirm}>confirm</button>
       <style jsx>{`
         .info-modal {
           position: relative;

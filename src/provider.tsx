@@ -21,7 +21,7 @@ export interface OverlayValue {
 }
 
 export interface OverlayCtrl<OverlayInstance = any, Option = any> {
-  show: (instance: OverlayInstance, option?: Option) => () => void;
+  open: (instance: OverlayInstance, option?: Option) => () => void;
   closeAll: () => void;
 }
 

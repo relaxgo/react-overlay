@@ -37,11 +37,11 @@
   "module": "react-overlay.esm.js",
   "size-limit": [
     {
-      "path": "dist/react-overlay.cjs.production.min.js",
+      "path": "dist/overlays.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/react-overlay.esm.js",
+      "path": "dist/overlays.esm.js",
       "limit": "10 KB"
     }
   ],

@@ -16,5 +16,5 @@ export function useDocumentEventListener(
 
     document.addEventListener(eventName, listener, options);
     return () => document.removeEventListener(eventName, listener);
-  }, [eventName]);
+  }, [eventName, options]);
 }

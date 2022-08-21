@@ -44,7 +44,10 @@ const normalizeOption = (option: ModalOption | undefined) => {
 };
 
 export function useModalOverlay() {
-  return useOverlay(OVERLAY_MODAL) as OverlayCtrl<React.ReactElement<ModalProps>, ModalOption>
+  return useOverlay(OVERLAY_MODAL) as OverlayCtrl<
+    React.ReactElement<ModalProps>,
+    ModalOption
+  >;
 }
 
 export default function ModalOverlay() {
@@ -57,7 +60,6 @@ export default function ModalOverlay() {
   }, [modals]);
 
   const closeModalById = (id: number) => {
-    console.log(id, modals);
     setModal(modals => modals.filter(m => m.id !== id));
   };
 
@@ -69,7 +71,7 @@ export default function ModalOverlay() {
   useEffect(() => {
     const closeAll = () => setModal([]);
 
-    const showModal = (
+    const openModal = (
       content: React.ReactElement<ModalProps>,
       option?: ModalOption
     ) => {
@@ -89,14 +91,12 @@ export default function ModalOverlay() {
       return closeModal;
     };
 
-    addOverlay(OVERLAY_MODAL, { show: showModal, closeAll });
+    addOverlay(OVERLAY_MODAL, { open: openModal, closeAll });
     return () => removeOverlay(OVERLAY_MODAL);
-  }, []);
+  }, [addOverlay, removeOverlay]);
 
   const handleBackdrop = () => {
-    console.log('----');
     const topModal = modals[modals.length - 1];
-    console.log(topModal, topModal?.option.closable);
     if (!topModal?.option.closable?.backdrop) return;
     closeModalById(topModal.id);
   };
@@ -107,7 +107,6 @@ export default function ModalOverlay() {
     if (!isEcs) return;
 
     const topModal = modals[modals.length - 1];
-    console.log(topModal, topModal?.option.closable);
     if (!topModal?.option.closable?.keyboard) return;
     closeModalById(topModal.id);
   });
