@@ -1,4 +1,10 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, {
+  useState,
+  createContext,
+  useContext,
+  useMemo,
+  useCallback,
+} from 'react';
 
 const overlayContext = createContext<OverlayValue>({
   addOverlay: () => {},
@@ -28,24 +34,25 @@ export interface OverlayCtrl<OverlayInstance = any, Option = any> {
 export function OverlayProvider({ children }: Props) {
   const [overlays, setOverlays] = useState<OverlayStore>({});
 
-  const addOverlay = (name: string, overlay: OverlayCtrl) => {
-    setOverlays({
+  const addOverlay = useCallback((name: string, overlay: OverlayCtrl) => {
+    setOverlays(overlays => ({
       ...overlays,
       [name]: overlay,
-    });
-  };
+    }));
+  }, []);
 
-  const removeOverlay = (name: string) => {
-    const { [name]: removed, ...val } = overlays;
-    setOverlays(val);
-    return removed;
-  };
+  const removeOverlay = useCallback((name: string) => {
+    setOverlays(({ [name]: removed, ...restOverlay }) => restOverlay);
+  }, []);
 
-  const value = {
-    addOverlay,
-    removeOverlay,
-    overlays,
-  };
+  const value = useMemo(
+    () => ({
+      addOverlay,
+      removeOverlay,
+      overlays,
+    }),
+    [overlays, addOverlay, removeOverlay]
+  );
 
   return (
     <overlayContext.Provider value={value}>{children}</overlayContext.Provider>
