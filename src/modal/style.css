@@ -28,6 +28,10 @@
   align-items: center;
 }
 
+.modal__item > * {
+  position: relative;
+}
+
 .modal__backdrop {
   position: absolute;
   background: black;
