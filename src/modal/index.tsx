@@ -14,10 +14,12 @@ const createModalId = () => __modalId++;
 export const OVERLAY_MODAL = 'modal';
 
 export interface ModalOption {
-  closable?: {
-    backdrop: boolean;
-    keyboard: boolean;
-  };
+  closable?:
+    | boolean
+    | {
+        backdrop: boolean;
+        keyboard: boolean;
+      };
   disableBackdrop?: boolean;
 }
 
@@ -97,8 +99,13 @@ export default function ModalOverlay() {
 
   const handleBackdrop = () => {
     const topModal = modals[modals.length - 1];
-    if (!topModal?.option.closable?.backdrop) return;
-    closeModalById(topModal.id);
+    const { closable } = topModal.option;
+    if (
+      closable === true ||
+      (typeof closable === 'object' && closable?.backdrop)
+    ) {
+      closeModalById(topModal.id);
+    }
   };
 
   useDocumentEventListener('keyup', (evt: KeyboardEvent) => {
@@ -107,8 +114,13 @@ export default function ModalOverlay() {
     if (!isEcs) return;
 
     const topModal = modals[modals.length - 1];
-    if (!topModal?.option.closable?.keyboard) return;
-    closeModalById(topModal.id);
+    const { closable } = topModal.option;
+    if (
+      closable === true ||
+      (typeof closable === 'object' && closable?.keyboard)
+    ) {
+      closeModalById(topModal.id);
+    }
   });
 
   if (!mounted) return null;
