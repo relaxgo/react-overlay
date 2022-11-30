@@ -33,6 +33,7 @@ export default function Footer() {
           align-items: center;
           margin-top: auto;
           margin-bottom: 5px;
+          margin-top: 30px;
         }
 
         .link-item {

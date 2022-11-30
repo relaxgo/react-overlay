@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 //import GitHubButton from 'react-github-btn';
 import Page from '$/components/layouts/Page';
 
@@ -11,13 +12,25 @@ export default function Home() {
           <meta name="description" content="react-overlay" />
         </Head>
 
-        <h1 className="title">Welcome to React-overlay</h1>
+        <h1 className="title">React-overlay</h1>
 
         <p className={'description'}>
           The easy way to manger all react overlays, like modal, toast
         </p>
 
-        <div></div>
+        <div className="stack">
+          <Link href="docs" className="btn">
+            Docs
+          </Link>
+          <a
+            href="https://github.com/relaxgo/react-overlay"
+            className="btn"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Github
+          </a>
+        </div>
       </div>
       <style jsx>{`
         .container {
@@ -27,6 +40,8 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          max-width: 960px;
+          margin: auto;
         }
 
         .title a {

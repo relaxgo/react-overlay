@@ -5,10 +5,10 @@ interface PageProps {
   children: React.ReactNode;
 }
 
-export default function Page({ children }: PageProps) {
+export default function MarkdownPage({ children }: PageProps) {
   return (
     <div className="page">
-      <div className="content">{children}</div>
+      <div className="markdown-body">{children}</div>
       <Footer />
       <style jsx>{`
         .page {
@@ -18,7 +18,7 @@ export default function Page({ children }: PageProps) {
           justify-content: center;
         }
 
-        .content {
+        .markdown-body {
           max-width: 600px;
           margin: auto;
         }
