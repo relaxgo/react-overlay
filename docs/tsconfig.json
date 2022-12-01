@@ -15,7 +15,8 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "$/*": ["./*"]
+      "$/*": ["./*"],
+      "@react-overlay/overlays": ["../dist"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

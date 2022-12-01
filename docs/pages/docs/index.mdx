@@ -1,4 +1,5 @@
 import MarkdownPage from '$/components/layouts/MarkdownPage';
+import OpenBasicModal from '$/components/examples/OpenBasicModal'
 
 export const meta = {
   title: 'docs',
@@ -38,27 +39,27 @@ root.render(
 ```
 
 Then it's easy to open your modal or other components by a hook. the modal will be mounted on the root.
+
+<OpenBasicModal />
+
 ```tsx
 import { useModalOverlay } from '@react-overlay/overlays';
-import InfoModal from './overlays/InfoModal';
 
-export default function Content() {
+import ConfirmModal from '$/components/modals/ConfirmModal';
+
+export default function OpenBasicModal() {
   const modalOverlay = useModalOverlay();
 
   const handleOpenModal = () => {
-    const modal = <InfoModal />;
+    const modal = <ConfirmModal description="This is a message for confirm" />;
     modalOverlay.open(modal);
   };
 
   return (
     <div>
-      <h1 className="title">test</h1>
-      <button onClick={handleOpenModal}>open a modal </button>
-      <style jsx>{`
-        .title {
-          margin: 10px;
-        }
-      `}</style>
+      <button className="btn" onClick={handleOpenModal}>
+        Open a Modal
+      </button>
     </div>
   );
 }

@@ -19,7 +19,7 @@ export default function MarkdownPage({ children }: PageProps) {
         }
 
         .markdown-body {
-          max-width: 600px;
+          max-width: 900px;
           margin: auto;
         }
       `}</style>

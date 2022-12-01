@@ -31,7 +31,7 @@ export default function InfoModal({ closeModal, num }: InfoModalProps) {
   };
 
   return (
-    <div className="modal info-modal">
+    <div className="info-modal">
       <h4>Info</h4>
       <p>
         You got a random number {num}. Do you want to continue opening a loading
