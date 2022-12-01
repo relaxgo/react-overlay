@@ -99,6 +99,8 @@ export default function ModalOverlay() {
 
   const handleBackdrop = () => {
     const topModal = modals[modals.length - 1];
+    if (!topModal) return;
+
     const { closable } = topModal.option;
     if (
       closable === true ||
@@ -114,6 +116,8 @@ export default function ModalOverlay() {
     if (!isEcs) return;
 
     const topModal = modals[modals.length - 1];
+    if (!topModal) return;
+
     const { closable } = topModal.option;
     if (
       closable === true ||
