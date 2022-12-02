@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 
+const path = require('path');
 const rehypeSlug = import('rehype-slug');
 const remarkGfm = import('remark-gfm');
 const nextMDX = require('@next/mdx');
@@ -23,6 +24,13 @@ const nextConfig = {
   swcMinify: true,
   images: {
     unoptimized: true,
+  },
+  webpack: (config, options) => {
+    config.resolve.alias['@react-overlay/overlays'] = path.resolve(
+      __dirname,
+      '../dist'
+    );
+    return config;
   },
 };
 
