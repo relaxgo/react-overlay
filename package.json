@@ -1,13 +1,10 @@
 {
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "main": "index.js",
   "description": "The easy way to manger all react overlays, like modal, toast",
   "repository": "relaxgo/react-overlay",
   "typings": "index.d.ts",
-  "files": [
-    "style.css"
-  ],
   "engines": {
     "node": ">=10"
   },
@@ -30,7 +27,7 @@
     "trailingComma": "es5"
   },
   "name": "@react-overlay/overlays",
-  "author": "Jiajun Zhang",
+  "author": "relaxgo",
   "module": "react-overlay.esm.js",
   "size-limit": [
     {
