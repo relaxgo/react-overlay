@@ -3,7 +3,8 @@
   "license": "MIT",
   "main": "index.js",
   "description": "The easy way to manger all react overlays, like modal, toast",
-  "repository": "relaxgo/react-overlay",
+  "homepage": "https://relaxgo.github.io/react-overlay",
+  "repository": "github:relaxgo/react-overlay",
   "typings": "index.d.ts",
   "engines": {
     "node": ">=10"

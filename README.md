@@ -1,6 +1,9 @@
 # react-overlay
 
-[![NPM](https://img.shields.io/npm/v/@react-overlay/overlays.svg)](https://www.npmjs.com/package/@react-overlay/overlays)
+[![Size](https://img.shields.io/bundlephobia/minzip/@react-overlay/overlays)](https://www.npmjs.com/package/@react-overlay/overlays)
+[![Downloads](https://img.shields.io/npm/dw/@react-overlay/overlays)](https://www.npmjs.com/package/@react-overlay/overlays)
+[![Version](https://img.shields.io/npm/v/@react-overlay/overlays)](https://www.npmjs.com/package/@react-overlay/overlays)
+[![NPM License](https://img.shields.io/npm/l/@react-overlay/overlays)](https://www.npmjs.com/package/@react-overlay/overlays)
 
 ## Install
 
