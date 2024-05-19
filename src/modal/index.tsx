@@ -14,13 +14,12 @@ const createModalId = () => __modalId++;
 export const OVERLAY_MODAL = 'modal';
 
 export interface ModalOption {
-  closable?:
-    | boolean
-    | {
-        backdrop: boolean;
-        keyboard: boolean;
-      };
-  disableBackdrop?: boolean;
+  closable?: boolean;
+  close: {
+    backdrop: boolean;
+    keyboard: boolean;
+  };
+  backdrop?: boolean;
 }
 
 type ModalData = {
@@ -34,11 +33,12 @@ export interface ModalProps {
 }
 
 const defaultOption: ModalOption = {
-  closable: {
+  closable: true,
+  close: {
     backdrop: true,
     keyboard: true,
   },
-  disableBackdrop: false,
+  backdrop: true,
 };
 
 const normalizeOption = (option: ModalOption | undefined) => {
@@ -101,11 +101,8 @@ export default function ModalOverlay() {
     const topModal = modals[modals.length - 1];
     if (!topModal) return;
 
-    const { closable } = topModal.option;
-    if (
-      closable === true ||
-      (typeof closable === 'object' && closable?.backdrop)
-    ) {
+    const { closable, close } = topModal.option;
+    if (closable && close.backdrop) {
       closeModalById(topModal.id);
     }
   };
@@ -118,11 +115,8 @@ export default function ModalOverlay() {
     const topModal = modals[modals.length - 1];
     if (!topModal) return;
 
-    const { closable } = topModal.option;
-    if (
-      closable === true ||
-      (typeof closable === 'object' && closable?.keyboard)
-    ) {
+    const { closable, close } = topModal.option;
+    if (closable && close.keyboard) {
       closeModalById(topModal.id);
     }
   });
@@ -154,7 +148,7 @@ type ModalItemProps = {
 function ModalItem({ modal, active, handleBackdrop }: ModalItemProps) {
   return (
     <div className={`modal__item ${active ? 'modal--active' : ''}`}>
-      {modal.option.disableBackdrop ? null : (
+      {!modal.option.backdrop ? null : (
         <div className="modal__backdrop" onClick={handleBackdrop} />
       )}
       {modal.content}

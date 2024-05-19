@@ -1,8 +1,8 @@
-.modal--open {
+.RoModal__htmlbody--open {
   overflow: hidden;
 }
 
-.modal-container {
+.RoModal-container {
   position: fixed;
   z-index: 1201;
   top: 0;
@@ -15,11 +15,11 @@
   margin: auto;
 }
 
-.modal-container.modal-container--empty {
+.RoModal-container.RoModal-container--empty {
   display: none;
 }
 
-.modal__item {
+.RoModal__item {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -32,11 +32,11 @@
   align-items: center;
 }
 
-.modal__item > * {
+.RoModal__item > * {
   position: relative;
 }
 
-.modal__backdrop {
+.RoModal__backdrop {
   position: absolute;
   background: black;
   opacity: 0;
@@ -44,29 +44,11 @@
   height: 100%;
 }
 
-.modal--active .modal__backdrop {
+.RoModal--active .RoModal__backdrop {
   opacity: 0.5;
 }
 
-.modal__content {
+.RoModal__content {
   position: relative;
   width: 100%;
-}
-
-.fade-enter {
-  opacity: 0;
-}
-
-.fade-enter-active {
-  opacity: 1;
-  transition: opacity 300ms ease-in;
-}
-
-.fade-exit {
-  opacity: 1;
-}
-
-.fade-exit-active {
-  opacity: 0;
-  transition: opacity 300ms ease-in;
 }
