@@ -13,7 +13,7 @@ export default function InfoModal({ closeModal, num }: InfoModalProps) {
 
   const handleConfirm = () => {
     const modal = <LoadingModal message="loading" />;
-    const closeLoading = modalOverlay.open(modal, { closable: false });
+    const closeLoading = modalOverlay.open(modal, { disableClose: true });
     setTimeout(() => {
       closeLoading();
       closeModal?.();

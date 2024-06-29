@@ -14,12 +14,10 @@ const createModalId = () => __modalId++;
 export const OVERLAY_MODAL = 'modal';
 
 export interface ModalOption {
-  closable?: boolean;
-  close: {
-    backdrop: boolean;
-    keyboard: boolean;
-  };
-  backdrop?: boolean;
+  disableEscapeKeyClose?: boolean;
+  disableBackdropClose?: boolean;
+  disableClose?: boolean;
+  disableBackdrop?: boolean;
 }
 
 type ModalData = {
@@ -31,19 +29,6 @@ type ModalData = {
 export interface ModalProps {
   closeModal?: () => void;
 }
-
-const defaultOption: ModalOption = {
-  closable: true,
-  close: {
-    backdrop: true,
-    keyboard: true,
-  },
-  backdrop: true,
-};
-
-const normalizeOption = (option: ModalOption | undefined) => {
-  return { ...defaultOption, ...option };
-};
 
 export function useModalOverlay() {
   return useOverlay(OVERLAY_MODAL) as OverlayCtrl<
@@ -86,7 +71,7 @@ export default function ModalOverlay() {
       const modalData = {
         id,
         content: cloneElement(content, { closeModal }),
-        option: normalizeOption(option),
+        option: option || {},
       };
 
       setModal(modals => [...modals, modalData]);
@@ -101,8 +86,8 @@ export default function ModalOverlay() {
     const topModal = modals[modals.length - 1];
     if (!topModal) return;
 
-    const { closable, close } = topModal.option;
-    if (closable && close.backdrop) {
+    const { disableBackdropClose, disableClose } = topModal.option;
+    if (!disableClose || !disableBackdropClose) {
       closeModalById(topModal.id);
     }
   };
@@ -115,8 +100,8 @@ export default function ModalOverlay() {
     const topModal = modals[modals.length - 1];
     if (!topModal) return;
 
-    const { closable, close } = topModal.option;
-    if (closable && close.keyboard) {
+    const { disableClose, disableEscapeKeyClose } = topModal.option;
+    if (!disableClose && !disableEscapeKeyClose) {
       closeModalById(topModal.id);
     }
   });
@@ -148,7 +133,7 @@ type ModalItemProps = {
 function ModalItem({ modal, active, handleBackdrop }: ModalItemProps) {
   return (
     <div className={`modal__item ${active ? 'modal--active' : ''}`}>
-      {!modal.option.backdrop ? null : (
+      {modal.option.disableBackdrop ? null : (
         <div className="modal__backdrop" onClick={handleBackdrop} />
       )}
       {modal.content}
