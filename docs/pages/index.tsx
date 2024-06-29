@@ -1,77 +1,59 @@
 import Head from 'next/head';
-import Link from 'next/link';
-//import GitHubButton from 'react-github-btn';
 import Page from '$/components/layouts/Page';
+import styled from '@emotion/styled';
+import Button from '$/components/Button';
 
 export default function Home() {
   return (
     <Page>
-      <div className="container">
-        <Head>
-          <title>React-overlay</title>
-          <meta name="description" content="react-overlay" />
-        </Head>
-
-        <h1 className="title">React-overlay</h1>
-
-        <p className={'description'}>
+      <Head>
+        <title>React-overlay</title>
+        <meta name="description" content="react-overlay" />
+      </Head>
+      <Container>
+        <Title>React-overlay</Title>
+        <Description>
           The easy way to manger all react overlays, like modal, toast
-        </p>
-
-        <div className="stack">
-          <Link href="docs" className="btn">
-            Docs
-          </Link>
-          <a
-            href="https://github.com/relaxgo/react-overlay"
-            className="btn"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Github
-          </a>
-        </div>
-      </div>
-      <style jsx>{`
-        .container {
-          padding: 4rem;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          max-width: 960px;
-          margin: auto;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          margin: 4rem 0;
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-      `}</style>
+        </Description>
+        <Row>
+          <Link href="/react-overlay/docs">Docs</Link>
+          <Link href="https://github.com/relaxgo/react-overlay">Github</Link>
+        </Row>
+      </Container>
     </Page>
   );
 }
+
+const Link = Button.withComponent('a');
+
+const Container = styled.div`
+  padding: 4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 960px;
+  margin: auto;
+`;
+
+const Title = styled.h1`
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+  text-align: center;
+`;
+
+const Description = styled.p`
+  margin: 4rem 0;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  text-align: center;
+`;
+
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;

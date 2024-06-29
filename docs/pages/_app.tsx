@@ -1,5 +1,4 @@
 import '$/styles/globals.css';
-import '$/styles/input.css';
 import '$/styles/layout.css';
 import '$/styles/markdown.css';
 import '@react-overlay/overlays/style.css';

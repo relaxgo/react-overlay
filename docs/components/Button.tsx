@@ -1,4 +1,6 @@
-.btn {
+import styled from '@emotion/styled';
+
+const Button = styled.button`
   min-height: 2.5rem;
   padding-block: 0.25rem;
   padding-inline: 1.5rem;
@@ -21,4 +23,13 @@
   background-color: #ddf1ff;
   font-weight: bold;
   text-transform: uppercase;
-}
+  color: #0070f3;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
+`;
+
+export default Button;

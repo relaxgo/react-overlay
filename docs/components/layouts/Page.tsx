@@ -1,5 +1,6 @@
 import React from 'react';
 import Footer from './Footer';
+import styled from '@emotion/styled';
 
 interface PageProps {
   children: React.ReactNode;
@@ -7,17 +8,16 @@ interface PageProps {
 
 export default function Page({ children }: PageProps) {
   return (
-    <div className="page">
+    <PageRoot>
       {children}
       <Footer />
-      <style jsx>{`
-        .page {
-          min-height: 100vh;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-        }
-      `}</style>
-    </div>
+    </PageRoot>
   );
 }
+
+const PageRoot = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
