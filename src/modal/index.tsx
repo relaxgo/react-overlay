@@ -43,7 +43,7 @@ export default function ModalOverlay() {
   const { addOverlay, removeOverlay } = useOverlayStore();
 
   useEffect(() => {
-    document.body.classList.toggle('modal--open', modals.length > 0);
+    document.body.classList.toggle('RoModal--open', modals.length > 0);
   }, [modals]);
 
   const closeModalById = (id: number) => {
@@ -108,10 +108,10 @@ export default function ModalOverlay() {
 
   if (!mounted) return null;
 
-  const emptyClass = modals.length === 0 ? 'modal-container--empty' : '';
+  const emptyClass = modals.length === 0 ? 'RoModal-container--empty' : '';
 
   return (
-    <div className={`modal-container ${emptyClass}`}>
+    <div className={`RoModal-container ${emptyClass}`}>
       {modals.map((modal, i) => (
         <ModalItem
           key={modal.id}
@@ -132,9 +132,9 @@ type ModalItemProps = {
 
 function ModalItem({ modal, active, handleBackdrop }: ModalItemProps) {
   return (
-    <div className={`modal__item ${active ? 'modal--active' : ''}`}>
+    <div className={`RoModal__item ${active ? 'RoModal--active' : ''}`}>
       {modal.option.disableBackdrop ? null : (
-        <div className="modal__backdrop" onClick={handleBackdrop} />
+        <div className="RoModal__backdrop" onClick={handleBackdrop} />
       )}
       {modal.content}
     </div>
