@@ -6,7 +6,9 @@ on:
     branches:
       - master
     paths:
+      - src/**
       - docs/**
+      - .github/**
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -32,7 +34,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "20"
           cache: npm
           cache-dependency-path: |
             docs/package-lock.json
@@ -60,7 +62,7 @@ jobs:
         run: npm run build
         working-directory: ./docs
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs/out
 
@@ -74,5 +76,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
-
+        uses: actions/deploy-pages@v4
