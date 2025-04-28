@@ -17,7 +17,8 @@
     "prepare": "husky"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "name": "@react-overlay/overlays",
   "author": "relaxgo",
@@ -48,8 +49,6 @@
     "husky": "^9.0.11",
     "postcss": "^8.4.39",
     "prettier": "^3.3.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
     "rollup": "^4.18.0",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",

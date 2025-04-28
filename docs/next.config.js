@@ -18,6 +18,8 @@ const withMDX = nextMDX({
 });
 
 const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   basePath: '/react-overlay',
   reactStrictMode: true,
@@ -26,10 +28,9 @@ const nextConfig = {
     unoptimized: true,
   },
   webpack: (config, options) => {
-    config.resolve.alias['@react-overlay/overlays'] = path.resolve(
-      __dirname,
-      '../dist'
-    );
+    config.resolve.alias['@react-overlay/overlays'] = path.resolve(__dirname, '../dist');
+    config.resolve.alias['react'] = path.resolve(__dirname, './node_modules/react');
+    config.resolve.alias['react-dom'] = path.resolve(__dirname, './node_modules/react-dom');
     return config;
   },
 };
